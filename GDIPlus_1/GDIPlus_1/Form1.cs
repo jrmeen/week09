@@ -22,19 +22,11 @@ namespace GDIPlus_1
             Graphics g = e.Graphics;
             Bitmap bmp = new Bitmap("D:\\Capture.PNG");
             this.SetClientSizeCore(bmp.Width, bmp.Height);
-            Rectangle topLeft = new Rectangle(0, 0, bmp.Width / 2, bmp.Height / 2);
-            Rectangle topRight = new Rectangle(bmp.Width / 2, 0, bmp.Width / 2, bmp.Height / 2);
-            Rectangle bottomLeft = new Rectangle(0, bmp.Height / 2, bmp.Width / 2, bmp.Height / 2);
-            Rectangle bottomRight = new Rectangle(bmp.Width / 2, bmp.Height / 2, bmp.Width / 2, bmp.Height / 2);
-            bmp.RotateFlip(RotateFlipType.RotateNoneFlipNone);
-            e.Graphics.DrawImage(bmp, topLeft);
-            bmp.RotateFlip(RotateFlipType.RotateNoneFlipNone);
-            e.Graphics.DrawImage(bmp, topRight);
-            bmp.RotateFlip(RotateFlipType.RotateNoneFlipNone);
-            e.Graphics.DrawImage(bmp, bottomLeft);
-            bmp.RotateFlip(RotateFlipType.RotateNoneFlipNone);
-            e.Graphics.DrawImage(bmp, bottomRight);
-
+            Rectangle destRect = new Rectangle(0, 0, bmp.Width, bmp.Height);
+            Brush myBrush = new SolidBrush(Color.Coral);
+            g.DrawImage(bmp, destRect);
+            g.DrawString("Hello world",
+            new Font("Verdana", 30, FontStyle.Bold), myBrush, 0, 0);
             g.Dispose();
         }
 
