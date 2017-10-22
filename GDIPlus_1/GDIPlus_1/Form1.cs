@@ -20,18 +20,12 @@ namespace GDIPlus_1
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
+            Bitmap bmp = new Bitmap("D:\\Capture.PNG");
+            this.SetClientSizeCore(bmp.Width + 20, bmp.Height + 20);
+            g.DrawImage(bmp, 10, 10);
+
             g.Dispose();
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-            GraphicsPath path = new GraphicsPath();
-            path.AddEllipse(panel3.ClientRectangle);
-            PathGradientBrush br = new PathGradientBrush(path);
-            br.CenterPoint = new Point(Panel3.ClientRectangle.Width / 2, Panel3.ClientRectangle.Height / 2);
-            br.CenterColor = Color.Navy;
-            br.SurroundColors = new Color[] { Color.Yellow };
-            e.Graphics.FillPath(br, path);
-        }
     }
 }
