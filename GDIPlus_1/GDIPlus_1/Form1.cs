@@ -21,12 +21,13 @@ namespace GDIPlus_1
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            Rectangle rect = new Rectangle(10, 10, 100, 100);
-            g.DrawEllipse(Pens.Purple, rect);
-            Rectangle rect2 = new Rectangle(150, 10, 120, 100);
-            g.DrawEllipse(Pens.DarkSlateBlue, rect2);
-            Rectangle rect3 = new Rectangle(150, 120, 120, 100);
-            g.FillEllipse(Brushes.Firebrick, rect3);
+            Pen penEllipe = new Pen(Color.Brown);
+            penEllipe.DashStyle = DashStyle.Dash;
+            g.DrawEllipse(penEllipe, 20, 20, 200, 150);
+
+            Pen penArc = new Pen(Color.Magenta, 2);
+            g.DrawArc(penArc, 20, 20, 200, 150, 90, 180);
+
             g.Dispose();
         }
     }
