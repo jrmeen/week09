@@ -21,17 +21,15 @@ namespace GDIPlus_1
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            GraphicsPath gpath = new GraphicsPath();
-            gpath.AddEllipse(46, 4, 28, 28);
-            gpath.AddEllipse(36, 32, 84, 32);
-            gpath.AddEllipse(100, 80, 88, 84);
-            gpath.AddEllipse(76, 50, 74, 84);
-            gpath.AddEllipse(90, 150, 74, 150);
-            gpath.AddEllipse(60, 100, 46, 150);
-            gpath.AddEllipse(32, 150, 46, 84);
-            gpath.AddEllipse(44, 50, 32, 84);
-            gpath.AddEllipse(20, 80, 36, 32);
-            g.FillPath(Brushes.Blue, gpath);
+            Point[] pt =
+             {
+                new Point(10,22),
+                new Point(188,246),
+                new Point(250,192),
+                new Point(220,48)
+            };
+            g.FillClosedCurve(Brushes.Blue, pt);
+            g.DrawClosedCurve(Pens.Red, pt);
             g.Dispose();
         }
     }
